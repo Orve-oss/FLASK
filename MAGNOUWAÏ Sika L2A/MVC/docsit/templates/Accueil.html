@@ -1,0 +1,16 @@
+
+<link rel="stylesheet" href="{{url_for('static', filename='css/css.css')}}">
+{% extends "base.html" %} {% block title%}Accueil{% endblock%}
+ 
+{% block content %}
+<html>
+<head>
+   
+</head>
+<body bgcolor="palengoldenrod">
+	<h1><marquee>Bienvenue!!!</marquee></h1>
+	<img src="{{url_for('static', filename='images/bij.jpg')}}">
+	<img src="{{url_for('static', filename='images/2.jpg')}}">
+</body>
+</html>
+{% endblock %}

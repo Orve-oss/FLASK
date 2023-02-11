@@ -1,0 +1,52 @@
+from urllib.parse import quote_plus
+from flask import Flask, render_template, request, url_for 
+from flask_sqlalchemy import SQLAlchemy
+
+
+app = Flask(__name__)
+
+
+#configuration de la chaine de connexion à la base de données
+password=quote_plus('mcuthunder')
+database_name= 'DEVOIR'
+chaine= 'postgresql://postgres:{}@localhost:5432/{}'.format(password,database_name)
+app.config['SQLALCHEMY_DATABASE_URI']= chaine
+
+#ne pas avoir les avertissements
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
+
+#créer l'instance de la base de données 
+db=SQLAlchemy(app)
+
+#creation d'une table fournisseurs (model, structure de la table) , nomChamp = db.Column(db.Type, contrainte (optionnelle))
+class User(db.Model):
+    id = db.Column (db.Integer, primary_key=True)
+    nom = db.Column(db.String(50), nullable=False)
+    prenom = db.Column (db.String(200))
+    nomuser = db.Column (db.String)
+    email = db.Column (db.String(50), unique= True, nullable= False) 
+    password = db.Column (db.String(50), nullable= False) 
+
+with app.app_context():
+    db.create_all()  
+    
+    
+
+@app.route('/')
+def index():
+    return render_template('home.html')
+
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+
+@app.route('/register')
+def register():
+    return render_template('register.html')
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+

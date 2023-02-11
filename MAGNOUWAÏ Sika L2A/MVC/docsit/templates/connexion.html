@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="{{url_for('static', filename='css/css.css')}}">
+{% extends "base.html" %} {% block title%}Connexion{% endblock%}
+ 
+{% block content %}
+<html>
+  <head>
+      <style>
+      body
+      {
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-image:url("{{url_for('static', filename='images/di.jpg')}}")
+      }
+      </style>
+  </head>
+  <body class="bd">
+    <form action="/connexion" method="POST">
+      <h2 align="center"><marquee>Login</marquee></h2>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"><marquee>Email address</marquee></label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"><marquee>Mot de passe</marquee> </label>
+        <input type="password"name="password" class="form-control" id="exampleInputPassword1">
+      </div><br/>
+
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      
+      
+      <input type="submit" class="btn btn-primary" class="btn" value="Connectez"/>
+      <input class="btn btn-primary" type="reset" value="annuler"><br/>
+      <a href="/Enregistrement" class="btn btn-danger" type="submit" id="signup" >S'Enregistrer</a>
+      
+
+    </form>
+  </body>
+
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block title%}Enregistrement{% endblock%}
+ 
+{% block content %}
+
+<html>
+<head>
+    <style>
+    body
+    {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-image:url("{{url_for('static', filename='images/scr.jpg')}}")
+      }
+    </style>
+</head>
+<body>
+    <form action="/Enregistrement" method="POST">
+      <h2 align="center">Sign-up</h2>
+      <div class="mb-a">
+          <label for="exampleInputName" class="form-label">Nom</label>
+          <input type="text" class="form-control" name="name" id="exampleInputName" aria-describedby="Namehelp">
+          <div id="Namehelp" class="form-text">Entrer votre nom de famille</div>
+        </div><br/><br/>
+      
+          <div class="mb-b">
+            <label for="exampleInputFirstname" class="form-label">Prenom</label>
+            <input type="text" class="form-control" name="pre_nom" id="exampleInputName" aria-describedby="Firstnamehelp">
+            <div id="Firstnamehelp" class="form-text">Entrer votre prenom </div>
+          </div><br/><br/>
+
+          <div class="mb-b">
+            <label for="exampleInputFirstname" class="form-label">nom utilisateur</label>
+            <input type="text" class="form-control" name="username" id="exampleInputName" aria-describedby="Firstnamehelp">
+            <div id="Firstnamehelp" class="form-text">Entrer votre nom utilisateur </div>
+          </div><br/><br/>
+      
+          <div class="mb-c">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" id="exampleInputEmail1"  aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Entrer votre email </div>
+          </div><br/>
+      
+        <div class="mb-d">
+          <label for="exampleInputPassword1" n class="form-label">Mot de passe</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+        </div><br/>
+
+      
+      <br>
+      <span class="badge text-bg-success"><input type="submit" class="btn btn-primary" value="Enregistrez"></span>
+      <span class="badge text-bg-danger"><input class="btn btn-primary" type="reset" value="annuler"></span>
+    </form>
+</body>
+</html>  
+{% endblock %}  
